@@ -14,15 +14,12 @@ jobs:
       uses: actions/checkout@v2
 
     - name: install the gcloud cli
-      uses: google-github-actions/setup-gcloud@v1
+      uses: google-github-actions/setup-gcloud@v0
       with:
         project_id: ${{ secrets.GOOGLE_PROJECT }}
         service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         install_components: 'gke-gcloud-auth-plugin'
         export_default_credentials: true
-
-    - name: auth gcloud
-      uses: google-github-actions/auth@v1.1.1
 
     - name: build and push the docker image
       env:
