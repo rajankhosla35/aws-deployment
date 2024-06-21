@@ -21,6 +21,9 @@ jobs:
         install_components: 'gke-gcloud-auth-plugin'
         export_default_credentials: true
 
+    - name: auth gcloud
+      uses: google-github-actions/auth@v1.1.1
+
     - name: build and push the docker image
       env:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
